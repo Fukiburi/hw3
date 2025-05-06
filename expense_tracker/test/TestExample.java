@@ -210,4 +210,17 @@ public class TestExample {
 	    assertEquals(categoryToFilterBy, currDisplayedTransaction.getCategory());
 	}
     }
+
+    @Test
+    public void testRemoveNonExistentTransaction() {
+        assertEquals(0, model.getTransactions().size());
+
+        Transaction ghostTransaction = new Transaction(25.0, CATEGORY_ENTERTAINMENT);
+
+        boolean removed = model.removeTransaction(ghostTransaction);
+
+        assertFalse(removed);
+        assertEquals(0, model.getTransactions().size());
+        assertEquals(0.00, getTotalCost(), 0.01);
+    }
 }
