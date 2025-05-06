@@ -73,7 +73,7 @@ public class ExpenseTrackerController {
     }
     
     //Remove the transaction from the model
-    model.removeTransaction(model.getRowCount()-1);
+    model.removeTransaction(model.getTransaction(model.getRowCount()-1));
     refresh();
     return true;
   }
