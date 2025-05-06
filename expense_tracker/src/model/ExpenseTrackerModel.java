@@ -21,8 +21,12 @@ public class ExpenseTrackerModel {
     transactions.add(t);
   }
 
-  public void removeTransaction(Transaction t) {
+  public void removeTransaction(int t) {
     transactions.remove(t);
+  }
+  
+  public int getRowCount() {
+    return transactions.size();
   }
 
   public List<Transaction> getTransactions() {

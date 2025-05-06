@@ -66,5 +66,15 @@ public class ExpenseTrackerController {
     }
     view.displayFilteredTransactions(filteredTransactions);
   }
+
+  public boolean removeTransaction() {
+    if (model.getRowCount() == 0) {
+      return false;
+    }
     
+    //Remove the transaction from the model
+    model.removeTransaction(model.getRowCount()-1);
+    refresh();
+    return true;
+  }
 }

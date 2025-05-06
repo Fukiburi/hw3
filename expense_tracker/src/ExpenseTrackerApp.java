@@ -74,6 +74,17 @@ public class ExpenseTrackerApp {
      controller.setFilter(null);
      controller.applyFilter();
    });
+   
+   // Add action listener to the "Remove Transaction" button
+   view.getRemoveTransactionBtn().addActionListener(e -> {
+     // Call controller to remove transaction
+     boolean removed = controller.removeTransaction();
+     
+     if (!removed) {
+       JOptionPane.showMessageDialog(view, "Could not remove Transaction");
+       view.toFront();
+     }
+   });
     
   }
 }
